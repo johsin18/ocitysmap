@@ -796,6 +796,7 @@ class OCitySMap:
                     self._render_one(config, tmpdir, renderer_cls,
                                      output_format, output_filename, osm_date,
                                      file_prefix)
+                    output_count = output_count + 1
                 except IndexDoesNotFitError:
                     LOG.exception("The actual font metrics probably don't "
                                   "match those pre-computed by the renderer's"
@@ -805,7 +806,6 @@ class OCitySMap:
                     LOG.warning("OS Error while rendering %s: %s" % (output_format, e))
                     raise
 
-                output_count = output_count + 1
         finally:
             config.status_update("")
             self._cleanup_tempdir(tmpdir)
