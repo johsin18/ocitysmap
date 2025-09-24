@@ -1119,6 +1119,8 @@ class MultiPageRenderer(Renderer):
         self._render_contents_page(ctx, cairo_surface, dpi, osm_date)
         self._render_overview_page(ctx, cairo_surface, dpi)
 
+        map_number = 0
+
         for map_number, (canvas, grid, overlay_canvases, overlay_effects) in enumerate(self.pages):
             self.rc.status_update(_("Rendering map page %(page)d of %(total)d")
                                   % { 'page':  map_number + 1,
