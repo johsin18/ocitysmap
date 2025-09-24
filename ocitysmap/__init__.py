@@ -926,7 +926,13 @@ class OCitySMap:
         if output_format == 'png':
             surface.write_to_png(tmp_output_filename)
 
-        surface.finish()
+        try:
+            surface.finish()
+        except Exception as e:
+            if output_format == 'png':
+                pass
+            else:
+                raise e
 
         os.rename(tmp_output_filename, output_filename)
 
