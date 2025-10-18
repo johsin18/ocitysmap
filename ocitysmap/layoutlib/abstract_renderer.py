@@ -340,6 +340,8 @@ class Renderer:
     def _has_multipage_format(self):
         if self.rc.output_format == 'pdf':
             return True
+        if self.rc.output_format == 'PDF':
+            return True
         return False
 
     @staticmethod
