@@ -1055,7 +1055,8 @@ class MultiPageRenderer(Renderer):
         """
         ctx.save()
 
-        ctx.set_source_rgba(0, 0, 0, 0.7);
+        ctx.set_source_rgba(0, 0, 0, 0.7)
+        ctx.set_operator(cairo.Operator.OVER)
 
         step_horiz = map_area_width_dots / map_grid.horiz_count
         last_horiz_portion = math.modf(map_grid.horiz_count)[0]
@@ -1260,6 +1261,7 @@ class MultiPageRenderer(Renderer):
         """
         ctx.save()
         ctx.set_font_size(14)
+        ctx.set_operator(cairo.Operator.OVER)
 
         bbox = map_canvas.get_actual_bounding_box()
         bottom_right, bottom_left, top_left, top_right = bbox.to_mercator()
